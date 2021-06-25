@@ -5,12 +5,19 @@ import ImageList from './components/ImageList';
 
 import { ImageWizardProvider } from './contexts/ImageWizard';
 
+const limit = 100;
+
 function App() {
   const [images, setImages] = useState([]);
+  const [skip, setSkip] = useState(0);
+
   return (
     <ImageWizardProvider value={{
       images,
-      setImages
+      setImages,
+      limit,
+      skip,
+      setSkip
     }}>
       <SearchAppBar />
       <ImageList />

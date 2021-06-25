@@ -68,7 +68,7 @@ export default function SearchAppBar() {
   const { setImages } = useContext(ImageContext);
 
   const searchImage = (e) => {
-    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=aeafe065ace713b9cedb10b958dfa6a3&extras=url_m&text=${e.target.value}&format=json&nojsoncallback=1`)
+    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=aeafe065ace713b9cedb10b958dfa6a3&extras=url_m%2C+url_l&text=${e.target.value}&format=json&nojsoncallback=1`)
     .then(response => response.json())
     .then(data => setImages(_.get(data, 'photos.photo', [])));
   }
